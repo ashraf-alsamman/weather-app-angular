@@ -4,22 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
 import { CommonModule } from "@angular/common";
-import { AuthService } from './services/auth.service';
-
+ 
 
 import { AppComponent } from './app.component';
 // import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
  import { WeatherComponent } from './components/weather/weather.component';
-
- 
+ import { SearchComponent } from './components/search/search.component';
+  import { DetailsComponent } from './components/details/details.component';
 const appRoutes: Routes =  [
 
  
   {path:'', component: HomeComponent},
   {path:'Home', component: HomeComponent},
-
-
+{path:'search/:bank', component: SearchComponent},
+{path:'details/:woeid', component: DetailsComponent},
 ]
 
 @NgModule({
@@ -27,8 +26,8 @@ const appRoutes: Routes =  [
     AppComponent,
     WeatherComponent,
     HomeComponent,
- 
-  
+    SearchComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +37,7 @@ const appRoutes: Routes =  [
     // FlashMessagesModule.forRoot(),
     CommonModule
   ],
-  providers: [  AuthService ],
+  providers: [    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

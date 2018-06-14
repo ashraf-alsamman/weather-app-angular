@@ -245,6 +245,8 @@
    outline: none;
    border: none;
    padding: 10px;
+   margin-bottom:20px;
+   width:80%;
    border-radius: 30px; }
  form select {
    -webkit-appearance: none;
@@ -1207,8 +1209,7 @@
  
  .hero {
    background-size: cover;
-   padding: 70px 0;
-   min-height: 350px; }
+ }
  
  .find-location {
    position: relative;
@@ -1216,7 +1217,7 @@
    .find-location input[type="text"] {
      width: 100%;
      padding: 20px 50px 20px 20px;
-     background: #1e202b;
+     background: #3f4356;
      color: white; }
    .find-location input[type="submit"] {
      position: absolute;
@@ -1233,7 +1234,6 @@
    width: 100%;
    overflow: hidden;
    border-radius: 10px;
-   margin-top: -150px;
    margin-bottom: 50px; }
    .forecast-container .forecast {
      display: table-cell;

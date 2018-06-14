@@ -2,21 +2,22 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
  
-// import { FlashMessagesService } from 'angular2-flash-messages';
+ 
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { ajax } from 'rxjs/ajax';
 import { map, retry, catchError } from 'rxjs/operators';
-// @Input() data;
+import {ActivatedRoute} from '@angular/router';
+
 
  
  @Component({
-  selector: 'weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.css']
+  selector: 'search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class WeatherComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   // public woeid: string;
   public city: object;
@@ -32,9 +33,9 @@ export class WeatherComponent implements OnInit {
   @Input()  woeid: string;
 
   constructor(
- 
+    private route:ActivatedRoute,
     private http: Http,
- 
+  
     private router: Router,
     // private flashMessage: FlashMessagesService
   ) { 
@@ -44,16 +45,17 @@ export class WeatherComponent implements OnInit {
 
   
   }
+  bankName:string;
 
   ngOnInit() {
  
- 
+    this.bankName = this.route.snapshot.params['bank'];
+    console.log(this.bankName);
     let headers = new Headers();
-     this.http.get('http://localhost/weather-app-angular/weather.php?command=location&woeid='+this.woeid, {headers: headers})
-     .pipe(map((response: any) => response.json())).subscribe(profile => {
-       this.city = profile;
-       },  err => { console.log(err);  return false; });
- 
+    this.http.get('http://localhost/weather-app-angular/weather.php?command=search&keyword='+this.bankName, {headers: headers})
+    .pipe(map((response: any) => response.json())).subscribe(profile => {
+      this.city = profile;
+      },  err => { console.log(err);  return false; });
   }
 
 
