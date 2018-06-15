@@ -1,26 +1,26 @@
  
 <div class="forecast-container"  *ngIf="city">
-     
-    <div class="today forecast">
-      <div class="forecast-header">
-        <div class="day">{{ city.consolidated_weather[0].weather_state_name}}</div>
-        <div class="date">{{ city.timezone }}</div>
-      </div> <!-- .forecast-header -->
-  <div class="forecast-content">
-        <div class="location">{{ city.title }}</div>
-        <div class="location">min : {{ city.consolidated_weather[0].min_temp | number }}</div>
-        <div class="location">max : {{ city.consolidated_weather[0].max_temp | number }}</div>
-        
-          <div class="degree">
-              <div class="num">{{city.consolidated_weather[0].the_temp | number }} <sup>o</sup>C</div>
-              <div class="forecast-icon">
-              <img src="https://www.metaweather.com/static/img/weather/png/{{city.consolidated_weather[0].weather_state_abbr}}.png" alt="" width=120>
-              </div>	
-          </div>
-  </div>
- 
-      </div>
-   
+    <a href="/details/{{ city.woeid }}">
+                <div class="today forecast">
+                    <div class="forecast-header">
+                    <div class="day">{{ city.consolidated_weather[0].weather_state_name}}</div>
+                    <div class="date">{{ city.timezone }}</div>
+                </div> <!-- .forecast-header -->
+            <div class="forecast-content row">
+                    <div class="location">{{ city.title }}</div>
+                    <div class="location">min : {{ city.consolidated_weather[0].min_temp | number }}</div>
+                    <div class="location">max : {{ city.consolidated_weather[0].max_temp | number }}</div>
+                    
+                    <div class="degree row">
+                            <div class="num col-md-6">{{city.consolidated_weather[0].the_temp | number }} <sup>o</sup>C</div>
+                            <div class="forecast-icon col-md-6">
+                            <img src="https://www.metaweather.com/static/img/weather/png/{{city.consolidated_weather[0].weather_state_abbr}}.png" alt="" width=80>
+                            </div>	
+                    </div>
+             </div>
+            
+        </div>
+      </a>
     </div>
  
  

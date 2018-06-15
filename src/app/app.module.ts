@@ -17,7 +17,7 @@ const appRoutes: Routes =  [
  
   {path:'', component: HomeComponent},
   {path:'Home', component: HomeComponent},
-{path:'search/:bank', component: SearchComponent},
+{path:'search/:keyword', component: SearchComponent},
 {path:'details/:woeid', component: DetailsComponent},
 ]
 

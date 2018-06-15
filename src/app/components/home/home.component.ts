@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
- 
+ import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
  
  
 
@@ -10,8 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(  private router:Router,    private route:ActivatedRoute,
+) { }
+     location:string ;
 
  
+ doclick()
+  {
+       if ( this.location != undefined )
+        { 
+        
+          this.router.navigate(['/search', this.location]);
+ 
+         }
+  } 
  
 
  
